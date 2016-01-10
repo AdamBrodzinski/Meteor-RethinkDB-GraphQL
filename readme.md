@@ -2,7 +2,7 @@
 
 Currently Meteor doesn't support RethinkDB. However, GraphQL does and we can use any promise based database with the Promise polyfill. GraphQL doesn't support realtime (yet) so this example will not update like Meteor publications will.
 
-Note, no UI is shown here but you can look at https://github.com/kadira-samples/meteor-graphql-demo for the same blog with UI
+Note, no UI is shown here but you can look at [kadira-samples/meteor-graphql-demo]https://github.com/kadira-samples/meteor-graphql-demo for the same blog with UI
 
 ## Usage
 
