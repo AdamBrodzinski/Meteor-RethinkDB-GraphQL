@@ -6,6 +6,7 @@ Note, no UI is shown here but you can look at [kadira-samples/meteor-graphql-dem
 
 ## Usage
 
+- install RethinkDB (`brew install rethinkdb` on the Mac)
 - `rethinkdb` *(run in another terminal)*
 - Add the following tables to `test` db: `posts comments authors`
 - `meteor run` *(fixtures will create fake data)*
