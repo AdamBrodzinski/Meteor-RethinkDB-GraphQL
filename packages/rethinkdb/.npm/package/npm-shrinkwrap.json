@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "rethinkdbdash": {
+      "version": "2.2.15",
+      "dependencies": {
+        "bluebird": {
+          "version": "3.1.1"
+        }
+      }
+    }
+  }
+}
