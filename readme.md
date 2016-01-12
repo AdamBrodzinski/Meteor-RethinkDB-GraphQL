@@ -4,6 +4,9 @@ Currently Meteor doesn't support RethinkDB. However, GraphQL does and we can use
 
 Note, no UI is shown here but you can look at [kadira-samples/meteor-graphql-demo](https://github.com/kadira-samples/meteor-graphql-demo) for the same blog with UI & Mongo
 
+Also, this demo does not use RethinkDB joins but you could (and should) use them in production. This would mean one database call for `posts` instead of several calls.
+
+
 ## Usage
 
 - install RethinkDB (`brew install rethinkdb` on the Mac)
