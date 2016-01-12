@@ -42,6 +42,7 @@ Comment = new GraphQLObjectType({
       resolve(comment) {
         return r.table('comments').get(comment.author).run();
       }
-    }
+    },
+    postId: {type: GraphQLString}
   })
 })
