@@ -1,8 +1,16 @@
 const { GraphQLSchema } = GraphQL.types;
 
-const schema = new GraphQLSchema({
-  query: BlogQuery,
-  mutation: Mutations
-});
+GraphQL.registerSchema('Author', new GraphQLSchema({
+	query: AuthorQuery,
+	mutation: AuthorMutations
+}));
 
-GraphQL.registerSchema('Blog', schema);
+GraphQL.registerSchema('Blog', new GraphQLSchema({
+	query: BlogQuery,
+	mutation: BlogMutations
+}));
+
+GraphQL.registerSchema('Comment', new GraphQLSchema({
+	query: CommentQuery,
+	mutation: CommentMutations
+}));

@@ -1,0 +1,1 @@
+CommentSchema = GraphQL.createLokkaClient('Comment');
