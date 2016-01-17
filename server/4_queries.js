@@ -1,4 +1,23 @@
-const {GraphQLObjectType, GraphQLString, GraphQLList, GraphQLNonNull } = GraphQL.types;
+const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLNonNull } = GraphQL.types;
+
+AuthorQuery = new GraphQLObjectType({
+  name: 'AuthorQueries',
+  fields: () => ({
+    author: {
+      type: Author,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLString)}
+      },
+      resolve(root, args) {
+        return r.table('authors').get(args.id);
+      }
+    },
+    authors: {
+      type: new GraphQLList(Author),
+      resolve: () => r.table('authors').run()
+    }
+  })
+});
 
 BlogQuery = new GraphQLObjectType({
   name: 'BlogQueries',
@@ -25,6 +44,16 @@ BlogQuery = new GraphQLObjectType({
       resolve(root, args) {
         return r.table('posts').get(args.id);
       }
+    }
+  })
+});
+
+CommentQuery = new GraphQLObjectType({
+  name: 'CommentQueries',
+  fields: () => ({
+    comments: {
+      type: new GraphQLList(Author),
+      resolve: () => r.table('comments').run()
     }
   })
 });

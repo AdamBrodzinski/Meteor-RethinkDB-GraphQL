@@ -5,6 +5,18 @@ Author = new GraphQLObjectType({
   fields: () => ({
     id: {type: GraphQLString},
     name: {type: GraphQLString},
+    posts: {
+      type: new GraphQLList(BlogPost),
+      resolve(author) {
+        return r.table('posts').filter({author: author.id}).run();
+      }
+    },
+    comments: {
+      type: new GraphQLList(Comment),
+      resolve(author) {
+        return r.table('comments').filter({author: author.id}).run();
+      }
+    }
   })
 });
 
@@ -18,7 +30,6 @@ BlogPost = new GraphQLObjectType({
     author: {
       type: Author,
       resolve(post) {
-        console.log('post', post)
         return r.table('authors').get(post.author);
       }
     },
@@ -31,7 +42,6 @@ BlogPost = new GraphQLObjectType({
   })
 });
 
-
 Comment = new GraphQLObjectType({
   name: 'Comment',
   fields: () => ({
@@ -40,9 +50,15 @@ Comment = new GraphQLObjectType({
     author: {
       type: Author,
       resolve(comment) {
-        return r.table('comments').get(comment.author).run();
+        return r.table('authors').get(comment.author).run();
       }
     },
-    postId: {type: GraphQLString}
+    postId: {type: GraphQLString},
+    post: {
+      type: BlogPost,
+      resolve(comment) {
+        return r.table('posts').get(comment.postId).run();
+      }
+    }
   })
-})
+});

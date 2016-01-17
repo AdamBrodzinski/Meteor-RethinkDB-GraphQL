@@ -8,9 +8,9 @@ r.table('authors').run().then(function(authors) {
 
 // we'll use this in the reset mutation in schema
 resetBlog = function () {
-  console.log("Resetting Data")
-  r.table('authors').insert({id: 'arunoda', name: 'Arunoda Susiripala'}).run()
-  r.table('authors').insert({id: 'tom', name: 'Tom Moodi'}).run()
+  console.log("Resetting Data");
+  r.table('authors').insert({id: 'arunoda', name: 'Arunoda Susiripala'}).run();
+  r.table('authors').insert({id: 'tom', name: 'Tom Moodi'}).run();
 
   _.range(5).forEach(i => {
     const postId = Random.id();
@@ -20,7 +20,7 @@ resetBlog = function () {
       title: `Post Title: ${i}`,
       content: `Post content: ${i}`,
       author: 'arunoda'
-    }).run()
+    }).run();
 
     const commentId = Random.id();
     r.table('comments').insert({
@@ -28,6 +28,6 @@ resetBlog = function () {
       text: `Post ${i} is awesome`,
       postId,
       author: 'tom'
-    }).run()
-  })
+    }).run();
+  });
 }

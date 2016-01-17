@@ -1,0 +1,1 @@
+BlogSchema = GraphQL.createLokkaClient('Blog');
