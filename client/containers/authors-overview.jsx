@@ -1,9 +1,9 @@
 AuthorsOverviewContainer = GraphQL.bindData((props, onData) => {
-	return AuthorSchema.watchQuery(AuthorsOverviewContainer.query, onData)
+  return AuthorSchema.watchQuery(AuthorsOverviewContainer.query, onData)
 })(AuthorsOverview);
 
 AuthorsOverviewContainer.query = `{
-	authors {
-		...${AuthorsOverview.fragment}
-	}
+  authors {
+    ...${AuthorsOverview.fragment}
+  }
 }`;
